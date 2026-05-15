@@ -1,0 +1,11 @@
+  METHOD _SET_ERROR.
+    DATA LV_MSG  TYPE SYMSGV.
+    EV_OK      = ABAP_FALSE.
+    EV_MESSAGE = IV_MESSAGE.
+    LV_MSG     = IV_MESSAGE.
+    ES_RETURN = ME->BUILD_BAPIRET2(
+    IV_TYPE   = 'E'
+    IV_ID     = 'ZTHOM'
+    IV_NUMBER = '011'
+    IV_V1     = LV_MSG ).
+  ENDMETHOD.

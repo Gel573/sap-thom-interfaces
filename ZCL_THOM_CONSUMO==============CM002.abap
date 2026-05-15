@@ -1,0 +1,4 @@
+  METHOD constructor.
+
+
+  ENDMETHOD.

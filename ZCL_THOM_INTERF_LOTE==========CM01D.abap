@@ -1,0 +1,18 @@
+  METHOD _PERSIST_PAYLOAD.
+    CLEAR: EV_OK,
+    EV_MESSAGE.
+
+    UPDATE ZTHOM_INTERF_LOT
+    SET PAYLOAD_JSON = IV_PAYLOAD_X
+    PAYLOAD_HASH = IV_HASH64
+    LAST_ERROR   = ''
+    WHERE WS_GUID_SAP  = IV_WS_GUID_SAP.
+
+    IF SY-SUBRC <> 0.
+      EV_OK      = ABAP_FALSE.
+      EV_MESSAGE = 'Falha ao atualizar PAYLOAD_JSON/PAYLOAD_HASH (UPDATE não encontrou linha).'.
+      RETURN.
+    ENDIF.
+
+    EV_OK = ABAP_TRUE.
+  ENDMETHOD.
